@@ -5,17 +5,37 @@
 // localStorage.clear()
 
 //How to set and get objects to local storage
-const addNumberToLS = () => {
-  const num = Math.ceil(Math.random() * 100);
-  console.log(num);
-  localStorage.setItem("number", num);
+//primitive
+// const addNumberToLS = () => {
+//   const num = Math.ceil(Math.random() * 100);
+//   console.log(num);
+//   localStorage.setItem("number", num);
+// };
+
+// document.querySelector(".addBtn").addEventListener("click", addNumberToLS);
+
+// const getNumberFromLS = () => {
+//   const num = localStorage.getItem("number");
+//   console.log("Get from local Storage", num);
+// };
+
+// document.querySelector(".getBtn").addEventListener("click", getNumberFromLS);
+
+//non-primitive
+const setObjectToLS = () => {
+  const customer = { name: "abul", products: 3, price: 75 };
+  const customerJSON = JSON.stringify(customer);
+  //save in ls
+  localStorage.setItem("customer", customerJSON);
+  console.log(customerJSON, typeof customerJSON);
+};
+document.querySelector(".addObj").addEventListener("click", setObjectToLS);
+
+const getObjectToLS = () => {
+  const customerJSON = localStorage.getItem("customer");
+  const customer = JSON.parse(customerJSON);
+  console.log(customerJSON);
+  console.log(customer);
 };
 
-document.querySelector(".addBtn").addEventListener("click", addNumberToLS);
-
-const getNumberFromLS = () => {
-  const num = localStorage.getItem("number");
-  console.log("Get from local Storage", num);
-};
-
-document.querySelector(".getBtn").addEventListener("click", getNumberFromLS);
+document.querySelector(".getObj").addEventListener("click", getObjectToLS);
