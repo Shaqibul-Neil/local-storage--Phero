@@ -27,6 +27,7 @@ const setObjectToLS = () => {
   const customerJSON = JSON.stringify(customer);
   //save in ls
   localStorage.setItem("customer", customerJSON);
+  //localStorage.setItem("customer", JSON.stringify(customer));
   console.log(customerJSON, typeof customerJSON);
 };
 document.querySelector(".addObj").addEventListener("click", setObjectToLS);
@@ -34,8 +35,15 @@ document.querySelector(".addObj").addEventListener("click", setObjectToLS);
 const getObjectToLS = () => {
   const customerJSON = localStorage.getItem("customer");
   const customer = JSON.parse(customerJSON);
+  //   const customer = JSON.parse(localStorage.getItem('customer'))
   console.log(customerJSON);
   console.log(customer);
+
+  //obj update
+  customer.age = 55;
+  localStorage.setItem("customerNew", JSON.stringify(customer));
+  const customerNew = JSON.parse(localStorage.getItem("customerNew"));
+  console.log(customerNew);
 };
 
 document.querySelector(".getObj").addEventListener("click", getObjectToLS);
