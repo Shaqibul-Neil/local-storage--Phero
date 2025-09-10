@@ -48,37 +48,70 @@
 
 // document.querySelector(".getObj").addEventListener("click", getObjectToLS);
 
-const handleAddProducts = () => {
-  const productEL = document.querySelector("#product");
-  const product = productEL.value;
-  const quantityEL = document.querySelector("#quantity");
-  const quantity = quantityEL.value;
-  //console.log("products added", quantity, product);
+// const handleAddProducts = () => {
+//   const productEL = document.querySelector("#product");
+//   const product = productEL.value;
+//   const quantityEL = document.querySelector("#quantity");
+//   const quantity = +quantityEL.value;
+//   //console.log("products added", quantity, product);
 
-  displayProducts(product, quantity);
-  addProductToCart(product, quantity);
-  productEL.value = quantityEL.value = "";
-};
+//   displayProducts(product, quantity);
+//   addProductToCart(product, quantity);
+//   productEL.value = quantityEL.value = "";
+// };
 
-document
-  .querySelector(".addProduct")
-  .addEventListener("click", handleAddProducts);
+// document
+//   .querySelector(".addProduct")
+//   .addEventListener("click", handleAddProducts);
 
-//creating a cart obj
-const getCart = () => {
-  const cart = {};
-  return cart;
-};
-//adding key value in cart obj
-const addProductToCart = (product, quantity) => {
-  const cart = getCart();
-  cart[product] = quantity;
-  console.log("cart", cart);
-};
+// //creating a cart obj
+// const getCart = () => {
+//   let cart = {};
+//   //getting the cart from local storage
+//   const cartJSON = localStorage.getItem("cart");
+//   //console.log(cartJSON);
+//   //cart name e kono obj ache kina check krtesi. jodi thake tahole cart er sathe add hbe
+//   if (cartJSON) {
+//     cart = JSON.parse(cartJSON);
+//     console.log(cart);
+//   }
+//   //jodi previously cart e kichu na thake
+//   return cart;
+// };
+// //adding key value in cart obj
+// const addProductToCart = (product, quantity) => {
+//   const cart = getCart();
+//   //cart e check krtesi similar name e oi product ache kina
+//   if (cart[product]) {
+//     cart[product] = cart[product] + quantity;
+//   } else {
+//     cart[product] = quantity;
+//   }
+//   //console.log("cart", cart);
+//   //creating json for cart
+//   const cartJSON = JSON.stringify(cart);
+//   //saving in local storage
+//   localStorage.setItem("cart", cartJSON);
+// };
 
-const productsContainer = document.querySelector("#products-container");
-const displayProducts = (product, quantity) => {
-  const li = document.createElement("li");
-  li.innerText = `${product} : ${quantity}`;
-  productsContainer.appendChild(li);
-};
+// const productsContainer = document.querySelector("#products-container");
+// const displayProducts = (product, quantity) => {
+//   const li = document.createElement("li");
+//   li.innerText = `${product} : ${quantity}`;
+//   productsContainer.appendChild(li);
+// };
+
+// //display products from stored local storage
+// const displayStoredProducts = () => {
+//   const cart = getCart();
+//   for (const product in cart) {
+//     const quantity = cart[product];
+//     console.log(product, quantity);
+//     displayProducts(product, quantity);
+//   }
+// };
+// displayStoredProducts();
+// const xy = { laptop: 8, pen: 10 };
+// console.log(xy.laptop);
+// const key = "laptop";
+// console.log(xy[key]);
